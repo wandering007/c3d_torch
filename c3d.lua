@@ -1,7 +1,7 @@
 require 'cudnn'
 require 'nn'
 
-local function c3d(batchSize)
+local function c3d()
    -- Create table describing C3D configuration
    local cfg = {64, 'P1', 128, 'P', 256, 256, 'P', 512, 512, 'P', 512, 512, 'P'}
    -- convolutional layers
@@ -37,7 +37,7 @@ local function c3d(batchSize)
    local model = nn.Sequential()
    model:add(conv_layers):add(fc_layers)
 
-   return model, {batchSize,3,16,112,112}
+   return model --{batchSize,3,16,112,112}
 end
 
 return c3d
