@@ -5,7 +5,7 @@ require 'cunn'
 local cmd = torch.CmdLine()
 cmd:text()
 cmd:text('Options:')
-cmd:option('-data',       '',         'Path to dataset')
+cmd:option('-data', '', 'Path to video frame dir')
 cmd:text()
 local opt = cmd:parse(arg or {})
 require 'image'
