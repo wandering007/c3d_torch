@@ -22,7 +22,7 @@ local function c3d()
       end
    end
    -- not update input grad
-   -- conv_layers:get(1).gradInput = nil --error
+   conv_layers:get(1).gradInput = nil
    -- fully-connected layers
    local fc_layers = nn.Sequential()
    fc_layers:add(nn.View(512*1*4*4))
