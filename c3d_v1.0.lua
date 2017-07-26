@@ -21,8 +21,6 @@ local function c3d()
          end
       end
    end
-   -- not update input grad
-   conv_layers:get(1).gradInput = nil
    -- fully-connected layers
    local fc_layers = nn.Sequential()
    fc_layers:add(nn.View(512*1*4*4))
@@ -36,7 +34,8 @@ local function c3d()
    -- c3d model
    local model = nn.Sequential()
    model:add(conv_layers):add(fc_layers)
-
+   -- not update input grad
+   model:get(1).gradInput = nil
    return model --{batchSize,3,16,112,112}
 end
 
